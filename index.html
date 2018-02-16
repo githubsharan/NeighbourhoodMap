@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Neighborhood Map</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="map"></div>
+	<div class="menu">
+		<div class="search">
+			<input data-bind="value: filter, valueUpdate: 'afterkeydown'" class="search-box" type="search" placeholder="Search locations">
+		</div>
+		<ul class="location-list" data-bind="foreach: filterLocations">
+			<li class="list-item">
+				<a href="#" class="location-points" data-bind="text: title, click: $parent.listItemClick"></a>
+			</li>
+		</ul>
+	</div>
+
+	<script src="js/knockout-3.4.2.js"></script>
+	<script src="js/app.js"></script>
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+
+	<script type="text/javascript">
+		function Errormap(){
+			alert("Sorry!!! cannot load Google Maps.");
+		}
+	</script>
+	<script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf2JxVFPoymKZv_iVn0I2sFTBlfv9JaCc&v=3&callback=initMap"onerror="Errormap()">
+   </script>
+</body>
+</html>
